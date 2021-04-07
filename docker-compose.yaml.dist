@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  borgbackup:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: b3vis/borg-server
+    volumes:
+      - .ssh/:/home/borg/.ssh/
+      - ./backups/:/backups
+    ports:
+      - "2222:22"
+
+
